@@ -7,73 +7,102 @@
 /* TailwindV4 theme and design tokens */
 @theme {
   /* Fonts */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
-  /* Theme and design tokens
-   * Example, adding more colors (for a figma design)
-   *  --color-midnight: #121063;
-   *  --color-tahiti: #3ab7bf;
-   *  --color-bermuda: #78dcca;
-   *
-   * Usage:
-   * Now utilities like bg-midnight, text-tahiti, and fill-bermuda will be available in your project
-   * in addition to the default colors.
-   */
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(222.2 84% 4.9%);
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(222.2 84% 4.9%);
+  /* Floral Color Palette */
+  --color-rose-petal: 254 235 243;
+  --color-rose-deep: 225 29 72;
+  --color-sage-light: 240 253 244;
+  --color-sage: 34 197 94;
+  --color-sage-dark: 21 128 61;
+  --color-cream: 255 251 235;
+  --color-terracotta: 251 146 60;
+  --color-lavender: 233 213 255;
+  --color-peach: 254 215 170;
 
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222.2 84% 4.9%);
+  /* Theme tokens */
+  --color-background: var(--color-cream);
+  --color-foreground: 39 39 42;
 
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(222.2 84% 4.9%);
+  --color-card: 255 255 255;
+  --color-card-foreground: 39 39 42;
 
-  --color-primary: hsl(222.2 47.4% 11.2%);
-  --color-primary-foreground: hsl(210 40% 98%);
+  --color-popover: 255 255 255;
+  --color-popover-foreground: 39 39 42;
 
-  --color-secondary: hsl(210 40% 96.1%);
-  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-primary: var(--color-sage);
+  --color-primary-foreground: 255 255 255;
 
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+  --color-secondary: var(--color-rose-petal);
+  --color-secondary-foreground: var(--color-rose-deep);
 
-  --color-accent: hsl(210 40% 96.1%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --color-muted: 245 245 245;
+  --color-muted-foreground: 115 115 115;
 
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-accent: var(--color-lavender);
+  --color-accent-foreground: 88 28 135;
 
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(222.2 84% 4.9%);
+  --color-destructive: 239 68 68;
+  --color-destructive-foreground: 255 255 255;
 
-  --color-sidebar-background: hsl(0 0% 98%);
+  --color-border: 229 229 229;
+  --color-input: 229 229 229;
+  --color-ring: var(--color-sage);
 
-  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
-
-  --color-sidebar-accent: hsl(240 4.8% 95.9%);
-
-  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
-
-  --color-sidebar-border: hsl(220 13% 91%);
-
-  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --color-sidebar-background: 255 255 255;
+  --color-sidebar-foreground: 39 39 42;
+  --color-sidebar-accent: 245 245 245;
+  --color-sidebar-accent-foreground: 39 39 42;
+  --color-sidebar-border: 229 229 229;
+  --color-sidebar-ring: var(--color-sage);
 }
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)) {
-    max-width: none;
+  padding-inline: 1rem;
+  @media (width >= 640px) {
+    padding-inline: 2rem;
   }
-  @media (width >= 1400px) {
-    max-width: 1400px;
+  @media (width >= 1280px) {
+    max-width: 1280px;
   }
+}
+
+/* Custom utilities for flower shop */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.gradient-rose {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-rose-petal)) 0%,
+    rgb(var(--color-peach)) 100%
+  );
+}
+
+.gradient-sage {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-sage-light)) 0%,
+    rgb(var(--color-sage)) 100%
+  );
+}
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-rose-deep)) 0%,
+    rgb(var(--color-sage-dark)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
